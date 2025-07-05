@@ -12,10 +12,8 @@
 header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(0,0,0,0.7); padding: 1rem; display: flex; align-items: center; justify-content: space-between; z-index: 10; }
 header .logo img { height: 50px; }
 header nav ul { list-style: none; display: flex; gap: 1rem; }
-header nav ul li { position: relative; }
 header nav ul li a { padding: 0.5rem; display: block; }
-header .icons { display: flex; gap: 1rem; }
-header .icons span { font-size: 1.25rem; cursor: pointer; }
+header .icons { display: flex; gap: 1rem; font-size: 1.25rem; }
 
 /* Hero */
 .hero { margin-top: 80px; position: relative; background: url('hero-bg.jpg') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; }
@@ -40,23 +38,12 @@ header .icons span { font-size: 1.25rem; cursor: pointer; }
 .why .features { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
 .why .feature { text-align: center; }
 .why .feature span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-.why .feature p { font-size: 0.9rem; }
 
 /* Testimonials */
 .testimonials { padding: 2rem 1rem; text-align: center; }
 .testimonials h2 { font-size: 2rem; margin-bottom: 1.5rem; }
 .testimonials blockquote { background: #222; padding: 1rem; margin: auto; max-width: 600px; border-radius: 8px; font-style: italic; }
 .testimonials cite { display: block; margin-top: 1rem; color: #0f0; }
-
-/* Blog */
-.blog { background: #181818; padding: 2rem 1rem; }
-.blog h2 { text-align: center; font-size: 2rem; margin-bottom: 1.5rem; }
-.blog .articles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
-.blog .article { background: #222; border-radius: 8px; overflow: hidden; }
-.blog .article img { height: 120px; object-fit: cover; }
-.blog .article .info { padding: 0.75rem; }
-.blog .article h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.blog .article small { color: #aaa; }
 
 /* Footer */
 footer { background: #000; padding: 2rem 1rem; color: #ccc; }
@@ -71,6 +58,7 @@ footer p.copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo"><img src="logo.png" alt="Gunshoop Logo" /></div>
     <nav>
@@ -82,21 +70,14 @@ footer p.copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
         <li><a href="#">Kontak</a></li>
       </ul>
     </nav>
-    <div class="icons">
-      <span>👤</span>
-      <span>🛒</span>
-      <span>🔍</span>
-    </div>
+    <div class="icons"><span>👤</span><span>🛒</span><span>🔍</span></div>
   </header>  <!-- Hero -->  <section class="hero">
     <div class="overlay">
-      <h1>Bidik Presisi, Dapatkan Kualitas Terbaik</h1>
+      <h1>Bidik Presisi, Dapatkan Kualitas Terbaik</n</h1>
       <p>Temukan Senapan Angin Pilihan Anda di Gunshoop - Terpercaya Sejak Dulu.</p>
-      <div class="cta">
-        <a href="#featured">Lihat Koleksi Senapan</a>
-        <a href="#promo">Promo Hari Ini</a>
-      </div>
+      <div class="cta"><a href="#featured">Lihat Koleksi Senapan</a><a href="#promo">Promo Hari Ini</a></div>
     </div>
-  </section>  <!-- Featured -->  <section id="featured" class="featured">
+  </section>  <!-- Featured Categories -->  <section id="featured" class="featured">
     <h2>Jelajahi Koleksi Terbaik Kami</h2>
     <div class="grid">
       <div class="card">
@@ -106,14 +87,14 @@ footer p.copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
         <a href="#">Lihat Produk</a>
       </div>
       <div class="card">
-        <img src="pompa.jpg" alt="Senapan Angin Pompa">
+        <img src="canon737.jpg" alt="Senapan Angin Pompa">
         <h3>Senapan Angin Pompa</h3>
         <p>Handal dan Mudah Digunakan.</p>
         <a href="#">Lihat Produk</a>
       </div>
       <div class="card">
-        <img src="aksesoris.jpg" alt="Aksesoris">
-        <h3>Aksesoris & Perlengkapan</h3>
+        <img src="aksesoris.jpg" alt="Aksesoris & Perlengkapan">
+        <h3>Aksesoris & Perlengkapan</n</h3>
         <p>Lengkapi Pengalaman Menembak Anda.</p>
         <a href="#">Lihat Produk</a>
       </div>
@@ -124,7 +105,7 @@ footer p.copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
         <a href="#">Lihat Detail</a>
       </div>
     </div>
-  </section>  <!-- Why Choose -->  <section class="why">
+  </section>  <!-- Why Choose Us -->  <section class="why">
     <h2>Mengapa Memilih Gunshoop?</h2>
     <div class="features">
       <div class="feature"><span>✔️</span><p>Terpercaya & Aman</p></div>
@@ -135,19 +116,13 @@ footer p.copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
   </section>  <!-- Testimonials -->  <section class="testimonials">
     <h2>Kata Mereka Tentang Gunshoop</h2>
     <blockquote>“Senapan anginnya berkualitas tinggi, akurasinya mantap! Pengiriman juga cepat. Sangat direkomendasikan!”<cite>- Andi</cite></blockquote>
-  
   </section>  <!-- Footer -->  <footer>
     <div class="footer-grid">
-      <div>
-        <h4>Tentang Gunshoop</h4>
-        <p>Toko Online Senapan Angin Terpercaya dengan produk asli dan layanan cepat.</p>
-      </div>
-      <div>
-        <h4>Link Cepat</h4>
-        <ul><li><a href="#">Beranda</a></li><li><a href="#">Semua Produk</a></li><li><a href="#">FAQ</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Syarat &amp; Ketentuan</a></li></ul>
-      </div>
-      <div>
-       
+      <div><h4>Tentang Gunshoop</h4><p>Toko Online Senapan Angin Terpercaya dengan produk asli dan layanan cepat.</p></div>
+      <div><h4>Link Cepat</h4><ul><li><a href="#">Beranda</a></li><li><a href="#">Semua Produk</a></li><li><a href="#">FAQ</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Syarat &amp; Ketentuan</a></li></ul></div>
+      <div><h4>Hubungi Kami</h4><ul><li>Alamat: Jl. Merdeka No.1</li><li>Telp: 0812-3456-7890</li><li>Email: info@gunshoop.com</li><li>Jam: 9:00 - 18:00</li></ul></div>
+      <div><h4>Ikuti Kami</h4><div class="social"><a href="#">👍</a><a href="#">📸</a><a href="#">▶️</a><a href="#">💬</a></div></div>
+    </div>
     <p class="copy">© 2025 Gunshoop. Hak Cipta Dilindungi.</p>
   </footer>
 </body>
