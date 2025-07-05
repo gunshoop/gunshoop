@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      padding-top: 120px;
+      padding-top: 100px; /* sesuaikan ruang header */
       font-family: sans-serif;
       background: #111;
       color: #fff;
@@ -18,18 +18,19 @@
       left: 0;
       width: 100%;
       background: transparent;
-      padding: 1em;
+      padding: 0.5em 1em;
       z-index: 10;
     }
     header img {
-      max-width: 200px;
+      max-width: 180px;
       height: auto;
       display: block;
-      margin: 0 auto 0.5em;
+      margin: -10px auto 0; /* naikkan sedikit */
     }
     header p {
       margin: 0;
-      color: #fff;
+      color: #0f0; /* ubah jadi hijau */
+      font-size: 1em;
     }
     .product-card {
       background: #333;
@@ -56,7 +57,6 @@
 </head>
 <body>
   <header>
-    <!-- Pastikan file logo.png ada di root repo -->
     <img src="logo.png" alt="Gunshoop Logo" />
     <p>Toko Online Senapan Angin Terpercaya</p>
   </header>  <!-- Produk 1 -->  <div class="product-card">
