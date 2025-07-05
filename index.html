@@ -2,70 +2,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunshoop - Jual Senapan Angin</title>
+  <title>Gunshoop - Beranda</title>
   <style>
-    /* Reset & global */
+    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }/* Header */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.7);
-  padding: 1rem;
+  background: rgba(0,0,0,0.8);
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
 }
+.logo { flex: 1; }
 .logo img { height: 50px; }
-nav ul { list-style: none; display: flex; gap: 1rem; }
-nav ul li a { padding: 0.5rem; }
-.icons { display: flex; gap: 1rem; font-size: 1.25rem; }
+nav { flex: 2; }
+nav ul { display: flex; justify-content: center; gap: 1.5rem; list-style: none; }
+nav ul li a { padding: 0.5rem 0.75rem; transition: background 0.3s; }
+nav ul li a:hover { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.actions { flex: 1; display: flex; justify-content: flex-end; gap: 1rem; font-size: 1.25rem; }
 
 /* Hero */
 .hero {
   margin-top: 80px;
   background: url('hero-bg.jpg') center/cover no-repeat;
-  height: 60vh;
+  height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.hero .overlay { background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 8px; }
-.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
-.hero .cta { display: flex; justify-content: center; }
-.hero .cta a { background: #0f0; color: #000; padding: 0.75rem 1.5rem; border-radius: 5px; font-weight: bold; }
+.hero .overlay {
+  background: rgba(0,0,0,0.6);
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  max-width: 600px;
+}
+.hero h1 { font-size: 2.75rem; margin-bottom: 1rem; line-height: 1.2; }
+.hero p { font-size: 1.25rem; margin-bottom: 1.5rem; }
+.hero .cta a {
+  background: #0f0;
+  color: #000;
+  padding: 0.75rem 2rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.hero .cta a:hover { background: #0c0; }
 
-/* Featured Categories */
-.featured { padding: 2rem 1rem; text-align: center; }
-.featured h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-.featured .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
-.featured .card { background: #222; padding: 1rem; border-radius: 8px; }
-.featured .card h3 { margin: 1rem 0 0.5rem; }
-.featured .card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
-.featured .card a { background: #0f0; color: #000; padding: 0.5rem 1rem; border-radius: 5px; font-weight: bold; }
+/* Featured */
+.featured { padding: 3rem 1rem; text-align: center; background: #181818; }
+.featured h2 { font-size: 2.25rem; margin-bottom: 2rem; }
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+.card {
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card img { height: 140px; object-fit: cover; }
+.card-content { padding: 1rem; }
+.card h3 { margin-bottom: 0.75rem; font-size: 1.1rem; }
+.card p { font-size: 0.9rem; margin-bottom: 1rem; }
+.card a {
+  background: #0f0;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+}
 
-/* Why Choose Us */
-.why { background: #181818; padding: 2rem 1rem; }
-.why h2 { text-align: center; font-size: 2rem; margin-bottom: 1.5rem; }
-.why .features { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
-.why .feature { text-align: center; }
-.why .feature span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-.why .feature p { font-size: 0.9rem; }
+/* Why Choose */
+.why { padding: 3rem 1rem; text-align: center; }
+.why h2 { font-size: 2.25rem; margin-bottom: 2rem; }
+.features {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+}
+.feature { background: #222; padding: 1.5rem; border-radius: 8px; }
+.feature span { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+.feature p { font-size: 0.95rem; }
 
 /* Footer */
 footer { background: #000; padding: 2rem 1rem; color: #ccc; }
-.footer-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
+.footer-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
 footer h4 { color: #fff; margin-bottom: 0.75rem; }
 footer ul { list-style: none; }
-footer ul li { margin-bottom: 0.5rem; }
-footer ul li a { color: #ccc; font-size: 0.9rem; }
+footer li { margin-bottom: 0.5rem; }
+footer a { color: #ccc; font-size: 0.9rem; }
 .copy { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; }
 
   </style>
@@ -74,7 +108,7 @@ footer ul li a { color: #ccc; font-size: 0.9rem; }
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="images/logo.png" alt="Gunshoop Logo" />
+      <img src="images/logo.png" alt="Gunshoop Logo">
     </div>
     <nav>
       <ul>
@@ -84,7 +118,7 @@ footer ul li a { color: #ccc; font-size: 0.9rem; }
         <li><a href="#">Tentang Kami</a></li>
       </ul>
     </nav>
-    <div class="icons">
+    <div class="actions">
       <span>👤</span>
       <span>🛒</span>
       <span>🔍</span>
@@ -97,35 +131,43 @@ footer ul li a { color: #ccc; font-size: 0.9rem; }
         <a href="#featured">Lihat Koleksi</a>
       </div>
     </div>
-  </section>  <!-- Featured Categories -->  <section id="featured" class="featured">
+  </section>  <!-- Featured -->  <section id="featured" class="featured">
     <h2>Jelajahi Koleksi Terbaik Kami</h2>
     <div class="grid">
       <div class="card">
-        <img src="pcp.jpg" alt="Senapan Angin PCP" />
-        <h3>Senapan Angin PCP</h3>
-        <p>Performa Tinggi untuk Akurasi Maksimal.</p>
-        <a href="#">Lihat Produk</a>
+        <img src="images/pcp.jpg" alt="Senapan Angin PCP">
+        <div class="card-content">
+          <h3>Senapan Angin PCP</h3>
+          <p>Performa Tinggi untuk Akurasi Maksimal.</p>
+          <a href="#">Lihat Produk</a>
+        </div>
       </div>
       <div class="card">
-        <img src="canon737.jpg" alt="Senapan Angin Pompa" />
-        <h3>Senapan Angin Pompa</h3>
-        <p>Handal dan Mudah Digunakan.</p>
-        <a href="#">Lihat Produk</a>
+        <img src="images/canon737.jpg" alt="Senapan Angin Pompa">
+        <div class="card-content">
+          <h3>Senapan Angin Pompa</h3>
+          <p>Handal dan Mudah Digunakan.</p>
+          <a href="#">Lihat Produk</a>
+        </div>
       </div>
       <div class="card">
-        <img src="aksesoris.jpg" alt="Aksesoris & Perlengkapan" />
-        <h3>Aksesoris & Perlengkapan</h3>
-        <p>Lengkapi Pengalaman Menembak Anda.</p>
-        <a href="#">Lihat Produk</a>
+        <img src="images/aksesoris.jpg" alt="Aksesoris & Perlengkapan">
+        <div class="card-content">
+          <h3>Aksesoris & Perlengkapan</h3>
+          <p>Lengkapi Pengalaman Menembak Anda.</p>
+          <a href="#">Lihat Produk</a>
+        </div>
       </div>
       <div class="card">
-        <img src="populer.jpg" alt="Produk Populer" />
-        <h3>Produk Populer</h3>
-        <p>Senapan Angin XYZ – Rp 2.500.000</p>
-        <a href="#">Lihat Detail</a>
+        <img src="images/populer.jpg" alt="Produk Populer">
+        <div class="card-content">
+          <h3>Produk Populer</h3>
+          <p>Senapan Angin XYZ – Rp 2.500.000</p>
+          <a href="#">Lihat Detail</a>
+        </div>
       </div>
     </div>
-  </section>  <!-- Why Choose Us -->  <section class="why">
+  </section>  <!-- Why Choose -->  <section class="why">
     <h2>Mengapa Memilih Gunshoop?</h2>
     <div class="features">
       <div class="feature"><span>✔️</span><p>Terpercaya & Aman</p></div>
