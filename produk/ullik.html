@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senapan Uklik – Gunshoop</title>
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    .header {
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    }
+    .logo {
+      max-width: 200px;
+      width: 50vw;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #00ff43;
+      color: black;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .card a:hover {
+      background: #00e03a;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="../logo.jpg" alt="Gunshoop Logo" class="logo">
+    <h1>Produk Senapan Angin Uklik</h1>
+  </div>  <div class="product-grid">
+    <div class="card">
+      <img src="../canon737.jpg" alt="Canon 737 Long">
+      <div class="card-title">Canon 737 Long</div>
+      <a href="../detail/canon737.html">Lihat Detail</a>
+    </div>
+    <div class="card">
+      <img src="../canon828.jpg" alt="Canon 828 Lighting">
+      <div class="card-title">Canon 828 Lighting</div>
+      <a href="../detail/828-lighting.html">Lihat Detail</a>
+    </div>
+  </div>
+</body>
+</html>
