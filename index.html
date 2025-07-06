@@ -10,25 +10,14 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    .header-bg {
-      position: relative;
-    }
-
-    .header-bg img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
     header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 0.75rem 1rem;
+      background: url('logo.jpg') center/cover no-repeat;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 1rem;
+      position: relative;
       z-index: 10;
     }
 
@@ -39,39 +28,28 @@
     }
 
     nav ul li a {
-      padding: 0.5rem;
-      background: rgba(0,0,0,0.6);
-      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
     }
 
     nav ul li a:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .actions span {
-      margin-left: 1rem;
       font-size: 1.25rem;
-      cursor: pointer;
-      background: rgba(0,0,0,0.6);
+      margin-left: 1rem;
+      background: rgba(0, 0, 0, 0.5);
       padding: 0.25rem;
       border-radius: 4px;
+      cursor: pointer;
     }
 
     .hero {
-      margin-top: -5px;
-      background: url('hero-bg.jpg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #000;
+      padding: 3rem 1rem;
       text-align: center;
-    }
-
-    .hero .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2rem 3rem;
-      border-radius: 8px;
-      max-width: 600px;
     }
 
     .hero h1 {
@@ -84,7 +62,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .hero .cta a {
+    .cta a {
       background: #0f0;
       color: #000;
       padding: 0.75rem 2rem;
@@ -94,8 +72,8 @@
 
     .featured {
       padding: 3rem 1rem;
+      background: #222;
       text-align: center;
-      background: rgba(0,0,0,0.5);
     }
 
     .featured h2 {
@@ -106,25 +84,19 @@
     .grid {
       display: grid;
       gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .card {
-      background: #222;
+      background: #000;
       border-radius: 8px;
       overflow: hidden;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
     }
 
     .card img {
       height: 240px;
       width: 100%;
       object-fit: contain;
-      background-color: #000;
       padding: 10px;
     }
 
@@ -133,12 +105,12 @@
     }
 
     .card-content h3 {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .card-content p {
-      font-size: 0.9rem;
       margin-bottom: 1rem;
+      font-size: 0.9rem;
     }
 
     .card-content a {
@@ -149,114 +121,53 @@
       font-weight: bold;
     }
 
-    .why {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .why h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .features {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    }
-
-    .feature {
-      background: #222;
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
-
-    .feature span {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .feature p {
-      font-size: 0.9rem;
-    }
-
     footer {
       background: #000;
       padding: 2rem 1rem;
       color: #ccc;
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      text-align: center;
     }
 
     footer h4 {
       color: #fff;
-      margin-bottom: 0.75rem;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
       margin-bottom: 0.5rem;
-    }
-
-    footer a {
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-
-    .copy {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header with logo as background -->
-  <div class="header-bg">
-    <img src="logo.jpg" alt="Gunshoop Logo">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#">Beranda</a></li>
-          <li><a href="#">Produk ▼</a></li>
-          <li><a href="#">Cara Belanja</a></li>
-          <li><a href="#">Tentang Kami</a></li>
-        </ul>
-      </nav>
-      <div class="actions">
-        <span>👤</span>
-        <span>🛒</span>
-        <span>🔍</span>
-      </div>
-    </header>
-  </div>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Produk ▼</a></li>
+        <li><a href="#">Cara Belanja</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <span>👤</span>
+      <span>🛒</span>
+      <span>🔍</span>
+    </div>
+  </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="overlay">
-      <h1>Bidik Presisi, Dapatkan Kualitas Terbaik</h1>
-      <p>Temukan Senapan Angin Pilihan Anda di Gunshoop – Terpercaya Sejak Dulu.</p>
-      <div class="cta">
-        <a href="#featured">Lihat Koleksi</a>
-      </div>
+    <h1>Bidik Presisi, Dapatkan Kualitas Terbaik</h1>
+    <p>Temukan Senapan Angin Pilihan Anda di Gunshoop – Terpercaya Sejak Dulu.</p>
+    <div class="cta">
+      <a href="#featured">Lihat Koleksi</a>
     </div>
   </section>
 
-  <!-- Featured categories -->
+  <!-- FEATURED PRODUCTS -->
   <section id="featured" class="featured">
     <h2>Jelajahi Koleksi Terbaik Kami</h2>
     <div class="grid">
       <div class="card">
-        <img src="pcp.jpg" alt="Senapan Angin PCP">
+        <img src="pcp.jpg" alt="Senapan PCP" />
         <div class="card-content">
           <h3>Senapan Angin PCP</h3>
           <p>Performa Tinggi untuk Akurasi Maksimal.</p>
@@ -264,62 +175,20 @@
         </div>
       </div>
       <div class="card">
-        <img src="canon737.jpg" alt="Senapan Angin Pompa">
+        <img src="canon737.jpg" alt="Senapan Pompa" />
         <div class="card-content">
           <h3>Senapan Angin Pompa</h3>
           <p>Handal dan Mudah Digunakan.</p>
           <a href="#">Lihat Produk</a>
         </div>
       </div>
-      <div class="card">
-        <img src="aksesoris.jpg" alt="Aksesoris & Perlengkapan">
-        <div class="card-content">
-          <h3>Aksesoris & Perlengkapan</h3>
-          <p>Lengkapi Pengalaman Menembak Anda.</p>
-          <a href="#">Lihat Produk</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="populer.jpg" alt="Produk Populer">
-        <div class="card-content">
-          <h3>Produk Populer</h3>
-          <p>Senapan Angin XYZ – Rp 2.500.000</p>
-          <a href="#">Lihat Detail</a>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Why Choose Us -->
-  <section class="why">
-    <h2>Mengapa Memilih Gunshoop?</h2>
-    <div class="features">
-      <div class="feature"><span>✔️</span><p>Terpercaya & Aman</p></div>
-      <div class="feature"><span>🚚</span><p>Pengiriman Cepat</p></div>
-      <div class="feature"><span>🏷️</span><p>Harga Kompetitif</p></div>
-      <div class="feature"><span>💬</span><p>Layanan Prima</p></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-grid">
-      <div>
-        <h4>Tentang Gunshoop</h4>
-        <p>Toko Online Senapan Angin Terpercaya dengan produk asli dan layanan cepat.</p>
-      </div>
-      <div>
-        <h4>Link Cepat</h4>
-        <ul>
-          <li><a href="#">Beranda</a></li>
-          <li><a href="#">Semua Produk</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Kebijakan Privasi</a></li>
-          <li><a href="#">Syarat &amp; Ketentuan</a></li>
-        </ul>
-      </div>
-    </div>
-    <p class="copy">© 2025 Gunshoop. Hak Cipta Dilindungi.</p>
+    <h4>Tentang Gunshoop</h4>
+    <p>© 2025 Gunshoop – Toko Senapan Angin Terpercaya</p>
   </footer>
 
 </body>
