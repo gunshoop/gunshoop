@@ -67,7 +67,7 @@
     .slider {
       position: relative;
       width: 100%;
-      overflow: hidden;
+      overflow-x: auto;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
@@ -75,16 +75,15 @@
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 200%;
+      min-width: 100%;
     }
 
     .slides img {
       width: 100%;
+      max-width: 100%;
       height: auto;
-      display: block;
-      margin: auto;
-      max-height: 400px;
       object-fit: contain;
+      display: block;
     }
 
     .nav-btn {
