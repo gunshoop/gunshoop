@@ -1,126 +1,145 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gunshoop - Toko Senapan Angin Terpercaya</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunshoop – Jual Senapan Angin</title>
   <style>
-    body { font-family: Arial,sans-serif; margin:0; background:#f8f8f8; color:#222;}
-    .header { background:#111; padding:0; position:sticky; top:0; z-index:1000; }
-    .header-row { display:flex; align-items:center; justify-content:space-between; padding:0 8px;}
-    .header-logo {
-      width: 100%; max-width:430px;
-      display:block; margin:0 auto; padding:14px 0 8px 0;
-      background:#fff;
+    body {
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      color: #222;
+      margin: 0;
+      padding: 0;
     }
-    /* Hamburger */
-    .hamburger {
-      width:36px; height:36px; display:flex; flex-direction:column; justify-content:center; align-items:center;
-      cursor:pointer; margin-left:8px; z-index:1100;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      padding: 0.5rem 0;
+      position: relative;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
-    .hamburger span {
-      display:block; height:4px; width:28px; margin:3px 0; background:#222; border-radius:3px; transition:all .3s;
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      z-index: 10;
     }
-    /* Nav desktop */
-    .nav { display:flex; justify-content:center; gap:22px; padding:10px 0; list-style:none; background:none; margin:0;}
-    .nav li a {
-      color: #fff; text-decoration:none; font-size:1.1rem; font-weight:bold;
-      padding:6px 14px; border-radius:4px; transition:background 0.2s;
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 5px 0;
+      background: #222;
+      border-radius: 2px;
+      transition: all 0.2s;
     }
-    .nav li a:hover { background:#1d1d1d; }
-    /* Responsive */
-    @media (max-width:700px) {
-      .header-row { justify-content:left; }
-      .header-logo { max-width:88vw; }
-      .nav { 
-        position:fixed; left:0; top:0; right:0; background:#222; flex-direction:column;
-        align-items:center; gap:10px; padding:70px 0 18px 0; 
-        transform:translateY(-120%); transition:.4s; z-index:1001;
-        border-bottom-left-radius:24px; border-bottom-right-radius:24px;
+    .logo {
+      max-width: 300px;
+      width: 70vw;
+      margin: auto;
+      display: block;
+    }
+    .products-section {
+      background: #f4f4f4;
+      padding: 2rem 1rem 1rem 1rem;
+      min-height: 60vh;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    @media (max-width: 600px) {
+      .products-grid {
+        grid-template-columns: 1fr;
       }
-      .nav.show { transform:translateY(0);}
-      .nav li a { font-size:1.1rem; color:#fff; }
     }
-    /* Overlay mobile menu */
-    .overlay { display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000;}
-    .overlay.show { display:block;}
-    /* Produk grid */
-    .produk-grid { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; padding:28px 0 16px 0;}
-    .produk-card { background:#fff; border-radius:10px; box-shadow:0 2px 8px #0001; width:170px; padding:14px 12px 18px 12px; text-align:center; transition:.2s;}
-    .produk-card:hover { box-shadow:0 4px 18px #2222; transform:translateY(-4px);}
-    .produk-card a { text-decoration:none; color:inherit;}
-    .produk-card img { width:120px; height:76px; object-fit:contain; margin-bottom:10px; border-radius:7px;}
-    .produk-card .nama { font-weight:bold; margin-bottom:7px; font-size:1.08rem;}
-    .produk-card .btn { background:#15ff57; color:#222; text-decoration:none; border-radius:5px; padding:4px 12px; font-weight:bold; font-size:.97rem; display:inline-block; margin-top:5px; transition: background 0.2s;}
-    .produk-card .btn:hover { background:#06b300; color:#fff;}
-    @media (max-width:500px) {
-      .header-logo { max-width:100vw;}
-      .produk-grid { gap:10px;}
-      .produk-card { width: 44vw; min-width:120px; max-width:160px; }
-      .produk-card img { width:84px; height:50px;}
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 1.1rem 1rem 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card img {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      margin-bottom: 0.8rem;
+      background: #eee;
+      border-radius: 10px;
+    }
+    .card-title {
+      font-size: 1.16rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+    .card a {
+      background: #00ff43;
+      color: #000;
+      padding: 0.45rem 1.15rem;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.02rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-top: 0.3rem;
+      transition: background .15s;
+      display: inline-block;
+    }
+    .card a:hover {
+      background: #00e03a;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <div class="header">
-    <div class="header-row">
-      <div class="hamburger" onclick="toggleNav()">
-        <span></span><span></span><span></span>
-      </div>
-      <img class="header-logo" src="logo.jpg" alt="Gunshoop Logo">
-    </div>
-    <div class="overlay" id="menuOverlay" onclick="toggleNav()"></div>
-    <nav>
-      <ul class="nav" id="mainNav">
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Produk</a></li>
-        <li><a href="#">Cara Belanja</a></li>
-        <li><a href="#">Tentang Kami</a></li>
-      </ul>
-    </nav>
+    <button class="menu-toggle" onclick="alert('Menu coming soon!')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="logo.jpg" alt="Gunshoop Logo" class="logo">
   </div>
 
-  <!-- PRODUK UTAMA -->
-  <div class="produk-grid">
-    <div class="produk-card">
-      <a href="#">
+  <!-- Products -->
+  <section class="products-section">
+    <div class="products-grid">
+      <div class="card">
         <img src="canon737.jpg" alt="Senapan Uklik">
-        <div class="nama">Senapan Uklik</div>
-      </a>
-      <a href="#" class="btn">Lihat Produk</a>
-    </div>
-    <div class="produk-card">
-      <a href="#">
+        <div class="card-title">Senapan Uklik</div>
+        <a href="#">Lihat Produk</a>
+      </div>
+      <div class="card">
         <img src="pcp.jpg" alt="Senapan PCP">
-        <div class="nama">Senapan PCP</div>
-      </a>
-      <a href="#" class="btn">Lihat Produk</a>
-    </div>
-    <div class="produk-card">
-      <a href="#">
+        <div class="card-title">Senapan PCP</div>
+        <a href="#">Lihat Produk</a>
+      </div>
+      <div class="card">
         <img src="bocap.jpg" alt="PCP Bocap">
-        <div class="nama">PCP Bocap</div>
-      </a>
-      <a href="#" class="btn">Lihat Produk</a>
-    </div>
-    <div class="produk-card">
-      <a href="#">
+        <div class="card-title">PCP Bocap</div>
+        <a href="#">Lihat Produk</a>
+      </div>
+      <div class="card">
         <img src="aksesoris.jpg" alt="Aksesoris & Perlengkapan">
-        <div class="nama">Aksesoris & Perlengkapan</div>
-      </a>
-      <a href="#" class="btn">Lihat Produk</a>
+        <div class="card-title">Aksesoris &<br>Perlengkapan</div>
+        <a href="#">Lihat Produk</a>
+      </div>
     </div>
-  </div>
-
-  <script>
-    function toggleNav() {
-      const nav = document.getElementById('mainNav');
-      const overlay = document.getElementById('menuOverlay');
-      nav.classList.toggle('show');
-      overlay.classList.toggle('show');
-    }
-  </script>
+  </section>
 </body>
 </html>
-
-
