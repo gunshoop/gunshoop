@@ -14,9 +14,43 @@
     }
     .header {
       background: #fff;
-      text-align: center;
+      position: relative;
       padding: 1rem;
       box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .menu {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      padding: 0.5rem 1rem;
+      z-index: 100;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 0.3rem 0;
+    }
+    .menu a:hover {
+      color: #007bff;
     }
     .header img {
       max-width: 200px;
@@ -43,7 +77,11 @@
     }
     .slides img {
       width: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
+      margin: auto;
+      max-height: 400px;
+      object-fit: contain;
     }
     .nav-btn {
       position: absolute;
@@ -57,12 +95,8 @@
       font-size: 1.2rem;
       border-radius: 4px;
     }
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
     h1 {
       text-align: center;
       margin-bottom: 1rem;
@@ -106,7 +140,12 @@
 </head>
 <body>
   <div class="header">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <img src="../../image/logo1.jpg" alt="Gunshoop Logo" />
+    <div class="menu" id="menu">
+      <a href="../../index.html">Beranda</a>
+      <a href="../../produk.html">Produk</a>
+    </div>
   </div>
 
   <div class="container">
@@ -154,6 +193,11 @@
     }
     function prevSlide() {
       showSlide(currentSlide - 1);
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
 </body>
