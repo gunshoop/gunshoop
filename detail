@@ -1,1 +1,73 @@
-Add file → Create new file
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canon 737 Long Full – Gunshoop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: green;
+      margin-top: 1rem;
+    }
+    .order {
+      margin-top: 1.5rem;
+    }
+    .order a {
+      background: #00ff43;
+      color: #000;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .order a:hover {
+      background: #00e03a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="../../images/canon737.jpg" alt="Canon 737 Long Full">
+    <h1>Canon 737 Long Full</h1>
+    <p>
+      Senapan angin uklik Canon 737 dengan laras panjang, popor kayu klasik, tabung dural 500cc. Akurasi tinggi cocok untuk latihan tembak dan berburu ringan.
+    </p>
+    <div class="price">Rp 1.050.000</div>
+    <div class="order">
+      <a href="https://wa.me/6282313488878" target="_blank">Pesan via WhatsApp</a>
+    </div>
+  </div>
+</body>
+</html>
