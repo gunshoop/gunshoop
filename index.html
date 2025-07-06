@@ -5,101 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gunshoop - Toko Senapan Angin Terpercaya</title>
   <style>
-    body { font-family: 'Arial', sans-serif; margin:0; background:#f8f8f8; color:#222;}
-    .header {
-      background:#111; color:#fff; padding:14px 0; text-align:center;
+    body { font-family: Arial,sans-serif; margin:0; background:#f8f8f8; color:#222;}
+    .header { background:#111; padding:0; position:sticky; top:0; z-index:1000; }
+    .header-row { display:flex; align-items:center; justify-content:space-between; padding:0 8px;}
+    .header-logo {
+      width: 100%; max-width:430px;
+      display:block; margin:0 auto; padding:14px 0 8px 0;
+      background:#fff;
     }
-    .header img {
-      height:46px; margin-bottom:6px;
-      display:block; margin-left:auto; margin-right:auto;
+    /* Hamburger */
+    .hamburger {
+      width:36px; height:36px; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      cursor:pointer; margin-left:8px; z-index:1100;
     }
-    .header .title { font-size:1.5rem; font-weight:bold; }
-    .header .sub { font-size:0.96rem; color:#aee8ae; margin-top:2px; }
-    .kategori {
-      background:#fff; margin:20px 0 10px 0; padding:18px 0 12px 0; box-shadow:0 2px 8px #0001;
-      border-radius:14px;
+    .hamburger span {
+      display:block; height:4px; width:28px; margin:3px 0; background:#222; border-radius:3px; transition:all .3s;
     }
-    .kategori-title { font-size:1.2rem; font-weight:bold; margin-bottom:14px; text-align:center;}
-    .kategori-list {
-      display:flex; justify-content:center; gap:18px; overflow-x:auto; padding: 0 10px;
+    /* Nav desktop */
+    .nav { display:flex; justify-content:center; gap:22px; padding:10px 0; list-style:none; background:none; margin:0;}
+    .nav li a {
+      color: #fff; text-decoration:none; font-size:1.1rem; font-weight:bold;
+      padding:6px 14px; border-radius:4px; transition:background 0.2s;
     }
-    .kategori-item { width:88px; text-align:center;}
-    .kategori-item img { width:72px; height:52px; object-fit:contain; background:#eee; border-radius:10px;}
-    .kategori-item div { margin-top:8px; font-size:1rem;}
-    .produk {
-      padding:18px 0; background:#fff; margin-bottom:10px; border-radius:16px;
-      box-shadow:0 2px 8px #0001;
+    .nav li a:hover { background:#1d1d1d; }
+    /* Responsive */
+    @media (max-width:700px) {
+      .header-row { justify-content:left; }
+      .header-logo { max-width:88vw; }
+      .nav { 
+        position:fixed; left:0; top:0; right:0; background:#222; flex-direction:column;
+        align-items:center; gap:10px; padding:70px 0 18px 0; 
+        transform:translateY(-120%); transition:.4s; z-index:1001;
+        border-bottom-left-radius:24px; border-bottom-right-radius:24px;
+      }
+      .nav.show { transform:translateY(0);}
+      .nav li a { font-size:1.1rem; color:#fff; }
     }
-    .produk-title { font-size:1.2rem; font-weight:bold; text-align:center; margin-bottom:16px;}
-    .produk-list {
-      display:flex; justify-content:center; flex-wrap:wrap; gap:16px; padding:0 10px;
-    }
-    .produk-card {
-      background:#fff; border-radius:10px; box-shadow:0 2px 8px #0001;
-      width:158px; padding:10px; text-align:center;
-    }
-    .produk-card img { width:120px; height:62px; object-fit:contain; margin-bottom:8px;}
-    .produk-card .nama { font-weight:bold; margin-bottom:4px;}
-    .produk-card .harga { color:#0a0; font-weight:bold; font-size:1.06rem; margin-bottom:5px;}
-    .produk-card .btn {
-      background:#15ff57; color:#222; text-decoration:none;
-      border-radius:5px; padding:5px 14px; font-weight:bold; display:inline-block; margin-top:5px;
-      transition: background 0.2s;
-    }
+    /* Overlay mobile menu */
+    .overlay { display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000;}
+    .overlay.show { display:block;}
+    /* Produk grid */
+    .produk-grid { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; padding:28px 0 16px 0;}
+    .produk-card { background:#fff; border-radius:10px; box-shadow:0 2px 8px #0001; width:170px; padding:14px 12px 18px 12px; text-align:center; transition:.2s;}
+    .produk-card:hover { box-shadow:0 4px 18px #2222; transform:translateY(-4px);}
+    .produk-card a { text-decoration:none; color:inherit;}
+    .produk-card img { width:120px; height:76px; object-fit:contain; margin-bottom:10px; border-radius:7px;}
+    .produk-card .nama { font-weight:bold; margin-bottom:7px; font-size:1.08rem;}
+    .produk-card .btn { background:#15ff57; color:#222; text-decoration:none; border-radius:5px; padding:4px 12px; font-weight:bold; font-size:.97rem; display:inline-block; margin-top:5px; transition: background 0.2s;}
     .produk-card .btn:hover { background:#06b300; color:#fff;}
     @media (max-width:500px) {
-      .kategori-list, .produk-list { flex-wrap:nowrap; overflow-x:auto;}
-      .produk-card { min-width:135px; }
+      .header-logo { max-width:100vw;}
+      .produk-grid { gap:10px;}
+      .produk-card { width: 44vw; min-width:120px; max-width:160px; }
+      .produk-card img { width:84px; height:50px;}
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <img src="logo.jpg" alt="Gunshoop Logo">
-    <div class="title">GUNSHOOP</div>
-    <div class="sub">Toko Senapan Angin Terpercaya</div>
-  </div>
-
-  <div class="kategori">
-    <div class="kategori-title">Kategori</div>
-    <div class="kategori-list">
-      <div class="kategori-item">
-        <img src="canon737.jpg" alt="Senapan Uklik">
-        <div>Senapan Uklik</div>
+    <div class="header-row">
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
       </div>
-      <div class="kategori-item">
-        <img src="pcp.jpg" alt="Senapan PCP">
-        <div>Senapan PCP</div>
-      </div>
-      <div class="kategori-item">
-        <img src="bocap.jpg" alt="PCP Bocap">
-        <div>PCP Bocap</div>
-      </div>
+      <img class="header-logo" src="logo.jpg" alt="Gunshoop Logo">
     </div>
+    <div class="overlay" id="menuOverlay" onclick="toggleNav()"></div>
+    <nav>
+      <ul class="nav" id="mainNav">
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Produk</a></li>
+        <li><a href="#">Cara Belanja</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="produk">
-    <div class="produk-title">Produk Unggulan</div>
-    <div class="produk-list">
-      <div class="produk-card">
+  <!-- PRODUK UTAMA -->
+  <div class="produk-grid">
+    <div class="produk-card">
+      <a href="#">
         <img src="canon737.jpg" alt="Senapan Uklik">
         <div class="nama">Senapan Uklik</div>
-        <div class="harga">Rp 1.000.000</div>
-        <a href="#" class="btn">Lihat Produk</a>
-      </div>
-      <div class="produk-card">
+      </a>
+      <a href="#" class="btn">Lihat Produk</a>
+    </div>
+    <div class="produk-card">
+      <a href="#">
         <img src="pcp.jpg" alt="Senapan PCP">
         <div class="nama">Senapan PCP</div>
-        <div class="harga">Rp 2.500.000</div>
-        <a href="#" class="btn">Lihat Produk</a>
-      </div>
-      <div class="produk-card">
+      </a>
+      <a href="#" class="btn">Lihat Produk</a>
+    </div>
+    <div class="produk-card">
+      <a href="#">
         <img src="bocap.jpg" alt="PCP Bocap">
         <div class="nama">PCP Bocap</div>
-        <div class="harga">Rp 3.000.000</div>
-        <a href="#" class="btn">Lihat Produk</a>
-      </div>
+      </a>
+      <a href="#" class="btn">Lihat Produk</a>
+    </div>
+    <div class="produk-card">
+      <a href="#">
+        <img src="aksesoris.jpg" alt="Aksesoris & Perlengkapan">
+        <div class="nama">Aksesoris & Perlengkapan</div>
+      </a>
+      <a href="#" class="btn">Lihat Produk</a>
     </div>
   </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('mainNav');
+      const overlay = document.getElementById('menuOverlay');
+      nav.classList.toggle('show');
+      overlay.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
