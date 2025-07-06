@@ -56,18 +56,17 @@
     }
 
     .slider-wrapper {
-      max-width: 800px;
-      margin: 1rem auto 0;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
+      padding: 1rem 0 0.5rem;
     }
 
     .slider {
       position: relative;
       width: 100%;
+      max-width: 800px;
+      margin: auto;
       overflow: hidden;
+      border-radius: 8px;
     }
 
     .slides {
@@ -80,8 +79,8 @@
       width: 100%;
       height: auto;
       display: block;
-      max-height: 400px;
       object-fit: contain;
+      background: #fff;
     }
 
     .nav-btn {
@@ -97,25 +96,32 @@
       border-radius: 4px;
     }
 
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
 
     .dots {
       text-align: center;
-      margin: 0.5rem 0 1rem 0;
+      margin-top: 0.3rem;
+      margin-bottom: 1.5rem;
     }
 
     .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 4px;
-      background-color: #bbb;
-      border-radius: 50%;
       display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
-    .active {
-      background-color: #333;
+    .dot.active {
+      background: #333;
     }
 
     .container {
@@ -185,6 +191,7 @@
     </div>
   </div>
 
+  <!-- SLIDER di luar kontainer -->
   <div class="slider-wrapper">
     <div class="slider">
       <div class="slides" id="slideContainer">
@@ -194,7 +201,10 @@
       <button class="nav-btn prev" onclick="prevSlide()">❮</button>
       <button class="nav-btn next" onclick="nextSlide()">❯</button>
     </div>
-    <div class="dots" id="dotsContainer"></div>
+    <div class="dots">
+      <span class="dot active" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+    </div>
   </div>
 
   <div class="container">
@@ -214,26 +224,20 @@
     </table>
 
     <div class="price">Harga: Rp 1.300.000</div>
+
     <a class="order-button" href="https://wa.me/6282313488878?text=Halo%20admin,%20saya%20ingin%20pesan%20Canon%20802%20Lighting." target="_blank">Pesan via WhatsApp</a>
   </div>
 
   <script>
     let currentSlide = 0;
     const slideContainer = document.getElementById("slideContainer");
-    const dotsContainer = document.getElementById("dotsContainer");
-
-    function updateDots() {
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < slideContainer.children.length; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'dot' + (i === currentSlide ? ' active' : '');
-        dotsContainer.appendChild(dot);
-      }
-    }
+    const dots = document.querySelectorAll(".dot");
 
     function showSlide(index) {
       const totalSlides = slideContainer.children.length;
-      currentSlide = (index + totalSlides) % totalSlides;
+      if (index < 0) currentSlide = totalSlides - 1;
+      else if (index >= totalSlides) currentSlide = 0;
+      else currentSlide = index;
       slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
       updateDots();
     }
@@ -246,12 +250,18 @@
       showSlide(currentSlide - 1);
     }
 
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentSlide);
+      });
+    }
+
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebarMenu");
       sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
     }
 
-    updateDots(); // init on load
+    showSlide(currentSlide);
   </script>
 </body>
 </html>
