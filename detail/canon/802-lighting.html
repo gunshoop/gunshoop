@@ -12,49 +12,49 @@
       padding: 0;
       color: #222;
     }
+
     .header {
       background: #fff;
-      position: relative;
-      padding: 1rem;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      position: relative;
     }
-    .menu-toggle {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      background: none;
-      border: none;
+
+    .menu-icon {
+      font-size: 1.8rem;
       cursor: pointer;
     }
-    .menu {
+
+    .sidebar {
       position: absolute;
       top: 100%;
       left: 1rem;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 6px;
       display: none;
-      flex-direction: column;
-      padding: 0.5rem 1rem;
-      z-index: 100;
+      z-index: 99;
     }
-    .menu a {
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.2rem;
       text-decoration: none;
       color: #333;
-      padding: 0.3rem 0;
     }
-    .menu a:hover {
-      color: #007bff;
+
+    .sidebar a:hover {
+      background: #f0f0f0;
     }
+
     .header img {
-      max-width: 200px;
+      max-width: 180px;
+      margin: auto;
     }
+
     .container {
       max-width: 800px;
       margin: auto;
@@ -63,6 +63,7 @@
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .slider {
       position: relative;
       width: 100%;
@@ -70,11 +71,13 @@
       border-radius: 8px;
       margin-bottom: 1rem;
     }
+
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
       width: 200%;
     }
+
     .slides img {
       width: 100%;
       height: auto;
@@ -83,6 +86,7 @@
       max-height: 400px;
       object-fit: contain;
     }
+
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -95,25 +99,36 @@
       font-size: 1.2rem;
       border-radius: 4px;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 1rem;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 2rem;
     }
+
     table td {
       padding: 0.6rem;
       border-bottom: 1px solid #ddd;
     }
+
     table td:first-child {
       font-weight: bold;
       width: 40%;
     }
+
     .price {
       font-size: 1.4rem;
       text-align: center;
@@ -121,6 +136,7 @@
       color: #00aa00;
       margin-bottom: 1.5rem;
     }
+
     .order-button {
       display: block;
       width: fit-content;
@@ -133,6 +149,7 @@
       text-decoration: none;
       border-radius: 8px;
     }
+
     .order-button:hover {
       background: #1ebe5d;
     }
@@ -140,9 +157,10 @@
 </head>
 <body>
   <div class="header">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
     <img src="../../image/logo1.jpg" alt="Gunshoop Logo" />
-    <div class="menu" id="menu">
+    <div style="width: 2rem;"></div>
+    <div class="sidebar" id="sidebarMenu">
       <a href="../../index.html">Beranda</a>
       <a href="../../produk.html">Produk</a>
     </div>
@@ -181,6 +199,7 @@
   <script>
     let currentSlide = 0;
     const slideContainer = document.getElementById("slideContainer");
+
     function showSlide(index) {
       const totalSlides = slideContainer.children.length;
       if (index < 0) currentSlide = totalSlides - 1;
@@ -188,16 +207,18 @@
       else currentSlide = index;
       slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
+
     function nextSlide() {
       showSlide(currentSlide + 1);
     }
+
     function prevSlide() {
       showSlide(currentSlide - 1);
     }
 
-    function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebarMenu");
+      sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
