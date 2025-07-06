@@ -1,77 +1,111 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canon 828 Lighting – Gunshoop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canon 802 Lighting – Gunshoop</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f9f9f9;
       margin: 0;
       padding: 0;
       color: #222;
     }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+    .header img {
+      max-width: 200px;
+    }
     .container {
       max-width: 800px;
       margin: auto;
+      padding: 2rem;
       background: #fff;
-      padding: 1.5rem;
+      border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 12px;
+    .product-image {
+      text-align: center;
+    }
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.6rem;
+      text-align: center;
+      margin-bottom: 1rem;
     }
-    ul {
-      line-height: 1.6;
-      margin: 0.5rem 0 1rem 1rem;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    table td {
+      padding: 0.6rem;
+      border-bottom: 1px solid #ddd;
+    }
+    table td:first-child {
+      font-weight: bold;
+      width: 40%;
     }
     .price {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      text-align: center;
       font-weight: bold;
-      color: green;
-      margin-top: 1rem;
+      color: #00aa00;
+      margin-bottom: 1.5rem;
     }
-    .order a {
-      background: #00ff43;
-      color: #000;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
+    .order-button {
+      display: block;
+      width: fit-content;
+      margin: auto;
+      padding: 0.7rem 1.5rem;
+      background: #25d366;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      border-radius: 8px;
     }
-    .order a:hover {
-      background: #00e03a;
+    .order-button:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
 <body>
+  <div class="header">
+    <img src="../logo.jpg" alt="Gunshoop Logo" />
+  </div>
+
   <div class="container">
-    <img src="../../images/canon828.jpg" alt="Canon 828 Lighting">
-    <h1>Canon 828 Lighting</h1>
-    <ul>
-      <li>Tipe: PCP (Pre-Charged Pneumatic)</li>
-      <li>Laras Rifled 600 mm</li>
-      <li>Popor: Kayu kokoh, adjustable cheek piece</li>
-      <li>Tabung: 500 cc aluminum alloy, 300 bar</li>
-      <li>Trigger: 2-stage, adjustable sensitivity</li>
-      <li>Kelistrikan: Lighting integrated scope mount (lampu LED)</li>
-      <li>Akurat: < 25 mm di 30 meter</li>
-      <li>Berat: ±3,8 kg</li>
-    </ul>
-    <div class="price">Rp 1.300.000</div>
-    <div class="order" style="margin-top:1rem;">
-      <a href="https://wa.me/6282313488878" target="_blank">Pesan via WhatsApp</a>
+    <div class="product-image">
+      <img src="../canon-802-lighting.jpg" alt="Canon 802 Lighting" />
     </div>
+    <h1>Canon 802 Lighting</h1>
+
+    <table>
+      <tr><td>Model</td><td>Canon 802 Lighting</td></tr>
+      <tr><td>Jenis</td><td>Uklik (Pompa manual)</td></tr>
+      <tr><td>Kaliber</td><td>4.5 mm</td></tr>
+      <tr><td>Material Popor</td><td>Kayu finishing doff</td></tr>
+      <tr><td>Tabung</td><td>Baja seamless OD 25 mm</td></tr>
+      <tr><td>Panjang Laras</td><td>± 60 cm</td></tr>
+      <tr><td>Jarak Akurasi</td><td>± 25 meter</td></tr>
+      <tr><td>Kapasitas Tembakan</td><td>1 peluru per kokang</td></tr>
+      <tr><td>Sistem Pengaman</td><td>Manual Safety</td></tr>
+      <tr><td>Berat</td><td>± 3 kg</td></tr>
+    </table>
+
+    <div class="price">Harga: Rp 1.300.000</div>
+
+    <a class="order-button" href="https://wa.me/6282313488878?text=Halo%20admin,%20saya%20ingin%20pesan%20Canon%20802%20Lighting." target="_blank">Pesan via WhatsApp</a>
   </div>
 </body>
 </html>
