@@ -67,23 +67,23 @@
     .slider {
       position: relative;
       width: 100%;
+      height: 460px;
       overflow: hidden;
-      background: #fff;
       border-radius: 8px;
       margin-bottom: 1rem;
+      background: #fff;
     }
 
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 200%;
+      width: 100%;
     }
 
     .slides img {
-      max-width: 100%;
-      width: auto;
+      min-width: 100%;
+      max-height: 460px;
       height: auto;
-      max-height: 450px;
       object-fit: contain;
       display: block;
       margin: auto;
@@ -108,6 +108,25 @@
 
     .next {
       right: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    .dots span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: #ccc;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .dots span.active {
+      background: #333;
     }
 
     h1 {
@@ -177,6 +196,7 @@
       <button class="nav-btn prev" onclick="prevSlide()">❮</button>
       <button class="nav-btn next" onclick="nextSlide()">❯</button>
     </div>
+    <div class="dots" id="dotsContainer"></div>
 
     <h1>Canon 802 Lighting</h1>
 
@@ -201,13 +221,32 @@
   <script>
     let currentSlide = 0;
     const slideContainer = document.getElementById("slideContainer");
+    const dotsContainer = document.getElementById("dotsContainer");
+
+    function initDots() {
+      const total = slideContainer.children.length;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots(index) {
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle("active", i === index);
+      }
+    }
 
     function showSlide(index) {
       const totalSlides = slideContainer.children.length;
       if (index < 0) currentSlide = totalSlides - 1;
       else if (index >= totalSlides) currentSlide = 0;
       else currentSlide = index;
+
       slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateDots(currentSlide);
     }
 
     function nextSlide() {
@@ -222,6 +261,9 @@
       const sidebar = document.getElementById("sidebarMenu");
       sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
     }
+
+    // Inisialisasi titik
+    initDots();
   </script>
 </body>
 </html>
