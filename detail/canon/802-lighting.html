@@ -64,12 +64,14 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .slider {
+    .slider-wrapper {
       position: relative;
-      width: 100%;
+      margin-bottom: 1.2rem;
+    }
+
+    .slider {
       overflow: hidden;
       border-radius: 8px;
-      margin-bottom: 1rem;
     }
 
     .slides {
@@ -79,12 +81,11 @@
     }
 
     .slides img {
-      width: 100%;
+      min-width: 100%;
       height: auto;
-      display: block;
-      margin: auto;
       max-height: 400px;
       object-fit: contain;
+      display: block;
     }
 
     .nav-btn {
@@ -110,8 +111,7 @@
 
     .dots {
       text-align: center;
-      margin-top: 0.3rem;
-      margin-bottom: 1.2rem;
+      margin-top: 0.5rem;
     }
 
     .dot {
@@ -186,15 +186,17 @@
   </div>
 
   <div class="container">
-    <div class="slider">
-      <div class="slides" id="slideContainer">
-        <img src="../../image/canon-802-detail.jpg" alt="Canon 802 Gambar 1">
-        <img src="../../image/canon-802-detail1.jpg" alt="Canon 802 Gambar 2">
+    <div class="slider-wrapper">
+      <div class="slider">
+        <div class="slides" id="slideContainer">
+          <img src="../../image/canon-802-detail.jpg" alt="Canon 802 Gambar 1">
+          <img src="../../image/canon-802-detail1.jpg" alt="Canon 802 Gambar 2">
+        </div>
+        <button class="nav-btn prev" onclick="prevSlide()">❮</button>
+        <button class="nav-btn next" onclick="nextSlide()">❯</button>
       </div>
-      <button class="nav-btn prev" onclick="prevSlide()">❮</button>
-      <button class="nav-btn next" onclick="nextSlide()">❯</button>
+      <div class="dots" id="dotsContainer"></div>
     </div>
-    <div class="dots" id="dotsContainer"></div>
 
     <h1>Canon 802 Lighting</h1>
 
