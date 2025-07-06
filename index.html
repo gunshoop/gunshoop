@@ -18,128 +18,76 @@
       justify-content: center;
       background: #fff;
       padding: 0.5rem 0;
-      position: relative;
       box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
-    .menu-toggle {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      background: none;
-      border: none;
-      outline: none;
-      z-index: 10;
+    .logo img {
+      height: 40px;
     }
-    .menu-toggle span {
-      display: block;
-      width: 28px;
-      height: 4px;
-      margin: 5px 0;
-      background: #222;
-      border-radius: 2px;
-      transition: all 0.2s;
+    .container {
+      padding: 1rem;
     }
-    .logo {
-      max-width: 300px;
-      width: 70vw;
-      margin: auto;
-      display: block;
-    }
-    .products-section {
-      background: #f4f4f4;
-      padding: 2rem 1rem 1rem 1rem;
-      min-height: 60vh;
-    }
-    .products-grid {
+    .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    @media (max-width: 600px) {
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
     .card {
       background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      padding: 1.1rem 1rem 1.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      padding-bottom: 1rem;
     }
     .card img {
-      width: 110px;
-      height: auto;
-      object-fit: contain;
-      margin-bottom: 0.8rem;
-      background: #eee;
-      border-radius: 10px;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
     .card-title {
-      font-size: 1.16rem;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
       font-weight: bold;
-      text-align: center;
-      margin-bottom: 0.6rem;
     }
     .card a {
-      background: #00ff43;
-      color: #000;
-      padding: 0.45rem 1.15rem;
-      border-radius: 7px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.02rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      margin-top: 0.3rem;
-      transition: background .15s;
       display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
     }
     .card a:hover {
-      background: #00e03a;
+      background: #218838;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+
   <div class="header">
-    <button class="menu-toggle" onclick="alert('Menu coming soon!')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <img src="logo.jpg" alt="Gunshoop Logo" class="logo">
+    <div class="logo">
+      <img src="assets/images/logo.jpg" alt="Gunshoop Logo" />
+    </div>
   </div>
 
-  <!-- Products -->
-  <section class="products-section">
-    <div class="products-grid">
+  <div class="container">
+    <div class="grid">
+      <!-- Canon 737 Long -->
       <div class="card">
-        <img src="canon737.jpg" alt="Senapan Uklik">
-        <div class="card-title">Senapan Uklik</div>
+        <img src="canon737.jpg" alt="Canon 737 Long Full">
+        <div class="card-title">Canon 737 Long Full</div>
         <a href="detail/canon/737-long.html">Lihat Produk</a>
       </div>
+
+      <!-- Canon 828 Lighting -->
       <div class="card">
-        <img src="pcp.jpg" alt="Senapan PCP">
-        <div class="card-title">Senapan PCP</div>
-        <a href="#">Lihat Produk</a>
-      </div>
-      <div class="card">
-        <img src="pcpbocap.jpg" alt="PCP Bocap">
-        <div class="card-title">PCP Bocap</div>
-        <a href="#">Lihat Produk</a>
-      </div>
-      <div class="card">
-        <img src="acsesoris.jpg" alt="Aksesoris & Perlengkapan">
-        <div class="card-title">Aksesoris &<br>Perlengkapan</div>
+        <img src="canon828.jpg" alt="Canon 828 Lighting">
+        <div class="card-title">Canon 828 Lighting</div>
         <a href="detail/canon/828-lighting.html">Lihat Produk</a>
       </div>
     </div>
-  </section>
+  </div>
+
 </body>
 </html>
