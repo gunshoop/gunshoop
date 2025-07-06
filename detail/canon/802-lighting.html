@@ -55,32 +55,30 @@
       margin: auto;
     }
 
-    .slider-wrapper {
-      background: #fff;
-      padding: 1rem 0 0.5rem;
-    }
-
     .slider {
       position: relative;
       width: 100%;
       max-width: 800px;
-      margin: auto;
+      height: 460px;
       overflow: hidden;
+      margin: 2rem auto 0.5rem;
       border-radius: 8px;
+      background: #fff;
     }
 
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 200%;
+      width: 100%;
     }
 
     .slides img {
-      width: 100%;
+      min-width: 100%;
+      max-height: 460px;
       height: auto;
-      display: block;
       object-fit: contain;
-      background: #fff;
+      display: block;
+      margin: auto;
     }
 
     .nav-btn {
@@ -110,17 +108,17 @@
       margin-bottom: 1.5rem;
     }
 
-    .dot {
+    .dots span {
       display: inline-block;
       width: 10px;
       height: 10px;
       margin: 0 4px;
       background: #ccc;
       border-radius: 50%;
-      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .dot.active {
+    .dots span.active {
       background: #333;
     }
 
@@ -191,30 +189,24 @@
     </div>
   </div>
 
-  <!-- SLIDER di luar kontainer -->
-  <div class="slider-wrapper">
-    <div class="slider">
-      <div class="slides" id="slideContainer">
-        <img src="../../image/canon-802-detail.jpg" alt="Canon 802 Gambar 1">
-        <img src="../../image/canon-802-detail1.jpg" alt="Canon 802 Gambar 2">
-      </div>
-      <button class="nav-btn prev" onclick="prevSlide()">❮</button>
-      <button class="nav-btn next" onclick="nextSlide()">❯</button>
+  <!-- SLIDER (di luar kontainer) -->
+  <div class="slider">
+    <div class="slides" id="slideContainer">
+      <img src="../../image/canon-802-detail.jpg" alt="Canon 802 Gambar 1">
+      <img src="../../image/canon-802-detail1.jpg" alt="Canon 802 Gambar 2">
     </div>
-    <div class="dots">
-      <span class="dot active" onclick="showSlide(0)"></span>
-      <span class="dot" onclick="showSlide(1)"></span>
-    </div>
+    <button class="nav-btn prev" onclick="prevSlide()">❮</button>
+    <button class="nav-btn next" onclick="nextSlide()">❯</button>
   </div>
+  <div class="dots" id="dotsContainer"></div>
 
   <div class="container">
     <h1>Canon 802 Lighting</h1>
-
     <table>
       <tr><td>Model</td><td>Canon 802 Lighting</td></tr>
       <tr><td>Jenis</td><td>Uklik (Pompa manual)</td></tr>
       <tr><td>Kaliber</td><td>4.5 mm</td></tr>
-      <tr><td>Material Popor</td><td>Kayu</td></tr>
+      <tr><td>Material Popor</td><td>Kayu finishing doff</td></tr>
       <tr><td>Tabung</td><td>Baja seamless OD 25 mm</td></tr>
       <tr><td>Panjang Laras</td><td>± 60 cm</td></tr>
       <tr><td>Jarak Akurasi</td><td>± 25 meter</td></tr>
@@ -224,22 +216,39 @@
     </table>
 
     <div class="price">Harga: Rp 1.300.000</div>
-
     <a class="order-button" href="https://wa.me/6282313488878?text=Halo%20admin,%20saya%20ingin%20pesan%20Canon%20802%20Lighting." target="_blank">Pesan via WhatsApp</a>
   </div>
 
   <script>
     let currentSlide = 0;
     const slideContainer = document.getElementById("slideContainer");
-    const dots = document.querySelectorAll(".dot");
+    const dotsContainer = document.getElementById("dotsContainer");
+
+    function initDots() {
+      const total = slideContainer.children.length;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots(index) {
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle("active", i === index);
+      }
+    }
 
     function showSlide(index) {
       const totalSlides = slideContainer.children.length;
       if (index < 0) currentSlide = totalSlides - 1;
       else if (index >= totalSlides) currentSlide = 0;
       else currentSlide = index;
+
       slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-      updateDots();
+      updateDots(currentSlide);
     }
 
     function nextSlide() {
@@ -250,18 +259,12 @@
       showSlide(currentSlide - 1);
     }
 
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentSlide);
-      });
-    }
-
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebarMenu");
       sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
     }
 
-    showSlide(currentSlide);
+    initDots();
   </script>
 </body>
 </html>
