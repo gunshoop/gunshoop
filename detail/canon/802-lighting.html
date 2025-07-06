@@ -56,9 +56,9 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 860px;
       margin: auto;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -67,26 +67,24 @@
     .slider {
       position: relative;
       width: 100%;
-      height: 460px;
       overflow: hidden;
       border-radius: 8px;
       margin-bottom: 1rem;
-      background: #fff;
     }
 
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 100%;
+      width: 200%;
     }
 
     .slides img {
-      min-width: 100%;
-      max-height: 460px;
+      width: 100%;
       height: auto;
-      object-fit: contain;
       display: block;
       margin: auto;
+      max-height: 400px;
+      object-fit: contain;
     }
 
     .nav-btn {
@@ -112,21 +110,21 @@
 
     .dots {
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1.2rem;
     }
 
-    .dots span {
-      display: inline-block;
-      width: 10px;
+    .dot {
       height: 10px;
-      margin: 0 4px;
-      background: #ccc;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
       border-radius: 50%;
-      transition: background 0.3s;
+      display: inline-block;
     }
 
-    .dots span.active {
-      background: #333;
+    .dot.active {
+      background-color: #333;
     }
 
     h1 {
@@ -204,7 +202,7 @@
       <tr><td>Model</td><td>Canon 802 Lighting</td></tr>
       <tr><td>Jenis</td><td>Uklik (Pompa manual)</td></tr>
       <tr><td>Kaliber</td><td>4.5 mm</td></tr>
-      <tr><td>Material Popor</td><td>Kayu finishing doff</td></tr>
+      <tr><td>Material Popor</td><td>Kayu</td></tr>
       <tr><td>Tabung</td><td>Baja seamless OD 25 mm</td></tr>
       <tr><td>Panjang Laras</td><td>± 60 cm</td></tr>
       <tr><td>Jarak Akurasi</td><td>± 25 meter</td></tr>
@@ -223,20 +221,11 @@
     const slideContainer = document.getElementById("slideContainer");
     const dotsContainer = document.getElementById("dotsContainer");
 
-    function initDots() {
-      const total = slideContainer.children.length;
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement("span");
-        if (i === 0) dot.classList.add("active");
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots(index) {
-      const dots = dotsContainer.children;
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.toggle("active", i === index);
-      }
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
     }
 
     function showSlide(index) {
@@ -246,7 +235,7 @@
       else currentSlide = index;
 
       slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-      updateDots(currentSlide);
+      updateDots();
     }
 
     function nextSlide() {
@@ -262,8 +251,15 @@
       sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
     }
 
-    // Inisialisasi titik
-    initDots();
+    // Init dots
+    const total = slideContainer.children.length;
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      dot.onclick = () => showSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+    updateDots();
   </script>
 </body>
 </html>
