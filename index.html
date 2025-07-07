@@ -70,7 +70,6 @@
     .products-section {
       background: #f4f4f4;
       padding: 2rem 1rem 1rem 1rem;
-      min-height: 60vh;
     }
     .products-grid {
       display: grid;
@@ -123,6 +122,34 @@
     .card a:hover {
       background: #00e03a;
     }
+
+    .payment-section, .about-section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    }
+    .payment-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .payment-method img {
+      width: 70px;
+      height: auto;
+      border-radius: 8px;
+      background: #eee;
+    }
+    .payment-text {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .about-section h2 {
+      margin-bottom: 0.8rem;
+    }
   </style>
 </head>
 <body>
@@ -133,7 +160,7 @@
       <span></span>
       <span></span>
     </button>
-    <img src="logo.jpg" alt="Gunshoop Logo" class="logo">
+    <img src="image/logo1.jpg" alt="Gunshoop Logo" class="logo">
     <div class="sidebar" id="sidebarMenu">
       <a href="index.html">Beranda</a>
       <a href="produk.html">Produk</a>
@@ -159,11 +186,51 @@
         <a href="produk/bocap/cncrouter.html">Lihat Produk</a>
       </div>
       <div class="card">
-        <img src="acsesoris.jpg" alt="Aksesoris & Perlengkapan">
+        <img src="image/acsesoris.jpg" alt="Aksesoris & Perlengkapan">
         <div class="card-title">Aksesoris &<br>Perlengkapan</div>
         <a href="produk/acsesoris/">Lihat Produk</a>
       </div>
     </div>
+  </section>
+
+  <!-- Pembayaran -->
+  <section class="payment-section">
+    <h2>Metode Pembayaran</h2>
+    <div class="payment-method">
+      <img src="image/bca.jpeg" alt="BCA">
+      <div class="payment-text">
+        <strong>BCA</strong><br>
+        a.n. Luthfi Hasan<br>
+        No. Rek: 2490596189
+      </div>
+    </div>
+    <div class="payment-method">
+      <img src="image/bri.jpeg" alt="BRI">
+      <div class="payment-text">
+        <strong>BRI</strong><br>
+        a.n. Luthfi Hasan<br>
+        No. Rek: 5828 0101 5822 539
+      </div>
+    </div>
+    <div class="payment-method">
+      <img src="image/bni.jpeg" alt="BNI">
+      <div class="payment-text">
+        <strong>BNI</strong><br>
+        a.n. Luthfi Asan<br>
+        No. Rek: 1915416232
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section class="about-section">
+    <h2>Tentang Kami</h2>
+    <p>
+      <strong>Gunshoop</strong> adalah toko online terpercaya yang menyediakan berbagai jenis senapan angin berkualitas tinggi, mulai dari Uklik, PCP, hingga aksesoris lengkap. Kami hadir untuk memenuhi kebutuhan para penghobi dan pemburu dengan produk unggulan, harga terjangkau, serta pelayanan cepat dan amanah.
+    </p>
+    <p>
+      Dengan pengalaman dan kepercayaan dari pelanggan di seluruh Indonesia, kami berkomitmen memberikan layanan terbaik dan pengiriman yang aman ke seluruh wilayah. Pilih Gunshoop sebagai partner senapan angin Anda!
+    </p>
   </section>
 
   <script>
