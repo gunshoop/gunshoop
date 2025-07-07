@@ -3,150 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BOCAP – Gunshoop</title>
+  <title>Produk – Gunshoop</title>
   <style>
     body {
-      background: #f4f4f4;
-      font-family: Arial, sans-serif;
-      color: #222;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
     }
     .header {
       background: #fff;
-      padding: 0.5rem 0;
-      position: relative;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .menu-toggle {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      background: none;
-      border: none;
-      outline: none;
-      z-index: 10;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 28px;
-      height: 4px;
-      margin: 5px 0;
-      background: #222;
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-    .sidebar {
-      position: absolute;
-      top: 100%;
-      left: 1rem;
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      display: none;
-      z-index: 99;
-    }
-    .sidebar a {
-      display: block;
-      text-decoration: none;
-      color: #222;
-      padding: 0.5rem 0;
-    }
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-    .judul {
+      padding: 1rem;
       text-align: center;
-      background: #fff;
-      padding: 1rem 0 0.5rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
-    .judul img {
-      max-width: 280px;
-      margin-bottom: 0.3rem;
+    .header img {
+      max-width: 200px;
     }
     h1 {
-      font-size: 1.4rem;
-      margin: 0.5rem 0 1.5rem;
+      text-align: center;
+      margin: 1rem 0 1.5rem;
     }
-    .produk {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem 1rem 2rem;
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      padding: 1rem;
+      max-width: 960px;
+      margin: auto;
     }
-    .kartu {
+    .card {
       background: white;
       border-radius: 14px;
       padding: 1rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      width: 160px;
       text-align: center;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
-    .kartu img {
+    .card img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
       background: #eee;
+      margin-bottom: 0.8rem;
     }
-    .kartu h2 {
-      font-size: 1.1rem;
-      margin: 0.6rem 0 0.4rem;
+    .card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
-    .kartu a {
+    .card a {
       display: inline-block;
-      margin-top: 0.5rem;
+      padding: 0.4rem 1rem;
       background: #00ff43;
       color: #000;
-      text-decoration: none;
-      padding: 0.4rem 1rem;
       border-radius: 6px;
       font-weight: bold;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
-    .kartu a:hover {
+    .card a:hover {
       background: #00dd3c;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <div class="header">
-    <button class="menu-toggle" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <img src="../../logo.jpg" alt="Gunshoop Logo" style="max-width: 220px;">
-    <div class="sidebar" id="sidebarMenu">
-      <a href="../../index.html">Beranda</a>
-      <a href="../../produk.html">Produk</a>
-    </div>
+    <img src="image/logo1.jpg" alt="Gunshoop Logo">
   </div>
 
-  <!-- Judul -->
-  <div class="judul">
-    <h1>BOCAP</h1>
-  </div>
+  <h1>BOCAP</h1>
 
-  <!-- Produk -->
-  <div class="produk">
-    <div class="kartu">
-      <img src="../../image/pcpbocapdetail.jpg" alt="Bocap CNC Router">
+  <div class="produk-grid">
+    <div class="card">
+      <img src="image/pcpbocapdetail.jpg" alt="BOCAP CNC ROUTER">
       <h2>BOCAP CNC ROUTER</h2>
-      <a href="../../detail/pcp/bocap-cnc-router.html">Detail</a>
+      <a href="produk/bocap/cncrouter.html">Detail</a>
     </div>
-  </div>
 
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebarMenu");
-      sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
-    }
-  </script>
+    <!-- Tambah produk baru tinggal copy blok ini -->
+    <!--
+    <div class="card">
+      <img src="image/namafile.jpg" alt="Nama Produk">
+      <h2>Nama Produk</h2>
+      <a href="produk/folder/nama.html">Detail</a>
+    </div>
+    -->
+  </div>
 </body>
 </html>
