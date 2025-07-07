@@ -1,73 +1,276 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canon 737 Long Full – Gunshoop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canon 737 Long – Gunshoop</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f9f9f9;
       margin: 0;
       padding: 0;
       color: #222;
     }
+
+    .header {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      display: none;
+      z-index: 99;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.75rem 1.2rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar a:hover {
+      background: #f0f0f0;
+    }
+
+    .header img {
+      max-width: 180px;
+      margin: auto;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 460px;
+      overflow: hidden;
+      margin: 2rem auto 0.5rem;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slides img {
+      min-width: 100%;
+      max-height: 460px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 4px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 0.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dots span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: #ccc;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .dots span.active {
+      background: #333;
+    }
+
     .container {
       max-width: 800px;
       margin: auto;
+      padding: 2rem;
       background: #fff;
-      padding: 1.5rem;
+      border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 12px;
+
+    h1 {
+      text-align: center;
       margin-bottom: 1rem;
     }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.6rem;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
     }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
+
+    table td {
+      padding: 0.6rem;
+      border-bottom: 1px solid #ddd;
     }
+
+    table td:first-child {
+      font-weight: bold;
+      width: 40%;
+    }
+
     .price {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      text-align: center;
       font-weight: bold;
-      color: green;
-      margin-top: 1rem;
+      color: #00aa00;
+      margin-bottom: 1.5rem;
     }
-    .order {
-      margin-top: 1.5rem;
-    }
-    .order a {
-      background: #00ff43;
-      color: #000;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
+
+    .order-button {
+      display: block;
+      width: fit-content;
+      margin: auto;
+      padding: 0.7rem 1.5rem;
+      background: #25d366;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      border-radius: 8px;
     }
-    .order a:hover {
-      background: #00e03a;
+
+    .order-button:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="../../images/canon737.jpg" alt="Canon 737 Long Full">
-    <h1>Canon 737 Long Full</h1>
-    <p>
-      Senapan angin uklik Canon 737 dengan laras panjang, popor kayu klasik, tabung dural 500cc. Akurasi tinggi cocok untuk latihan tembak dan berburu ringan.
-    </p>
-    <div class="price">Rp 1.050.000</div>
-    <div class="order">
-      <a href="https://wa.me/6282313488878" target="_blank">Pesan via WhatsApp</a>
+  <div class="header">
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <img src="../../image/logo1.jpg" alt="Gunshoop Logo" />
+    <div style="width: 2rem;"></div>
+    <div class="sidebar" id="sidebarMenu">
+      <a href="../../index.html">Beranda</a>
+      <a href="../../produk.html">Produk</a>
     </div>
   </div>
+
+  <div class="slider">
+    <div class="slides" id="slideContainer">
+      <img src="../../image/canon737detail.jpg" alt="Canon 737 Gambar 1">
+      <img src="../../image/canon737detail1.jpg" alt="Canon 737 Gambar 2">
+    </div>
+    <button class="nav-btn prev" onclick="prevSlide()">❮</button>
+    <button class="nav-btn next" onclick="nextSlide()">❯</button>
+  </div>
+  <div class="dots" id="dotsContainer"></div>
+
+  <div class="container">
+    <h1>Canon 737 Long</h1>
+    <table>
+      <tr><td>Panjang Laras</td><td>55 cm</td></tr>
+      <tr><td>Bahan Laras</td><td>Baja</td></tr>
+      <tr><td>OD Laras</td><td>8 mm</td></tr>
+      <tr><td>Kaliber</td><td>4,5 mm</td></tr>
+      <tr><td>Alur Laras</td><td>8 Ulir</td></tr>
+      <tr><td>Chamber Box</td><td>ABS</td></tr>
+      <tr><td>Mekanisme</td><td>Pompa manual atau tangan</td></tr>
+      <tr><td>Bahan Tabung</td><td>Baja</td></tr>
+      <tr><td>Tebal Tabung</td><td>2 mm, OD 25</td></tr>
+      <tr><td>Pompa</td><td>Min. 3x – Max. 10x</td></tr>
+      <tr><td>Pengisian</td><td>Pompa bawah</td></tr>
+      <tr><td>Akurasi</td><td>50–80 meter efektif</td></tr>
+      <tr><td>Power</td><td>500–800 fps</td></tr>
+      <tr><td>Berat Keseluruhan</td><td>2,5 kg</td></tr>
+      <tr><td>Panjang Keseluruhan</td><td>82 cm</td></tr>
+      <tr><td>Bahan Popor</td><td>ABS</td></tr>
+      <tr><td>Model Popor</td><td>Klasik</td></tr>
+    </table>
+
+    <div class="price">Harga: Rp 1.100.000</div>
+    <a class="order-button" href="https://wa.me/6282313488878?text=Halo%20admin,%20saya%20ingin%20pesan%20Canon%20737%20Long." target="_blank">Pesan via WhatsApp</a>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slideContainer = document.getElementById("slideContainer");
+    const dotsContainer = document.getElementById("dotsContainer");
+
+    function initDots() {
+      const total = slideContainer.children.length;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots(index) {
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle("active", i === index);
+      }
+    }
+
+    function showSlide(index) {
+      const totalSlides = slideContainer.children.length;
+      if (index < 0) currentSlide = totalSlides - 1;
+      else if (index >= totalSlides) currentSlide = 0;
+      else currentSlide = index;
+
+      slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateDots(currentSlide);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebarMenu");
+      sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
+    }
+
+    initDots();
+  </script>
 </body>
 </html>
