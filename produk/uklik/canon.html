@@ -1,65 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Senapan Uklik – Gunshoop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunshoop – Jual Senapan Angin</title>
   <style>
     body {
       background: #f4f4f4;
       font-family: Arial, sans-serif;
+      color: #222;
       margin: 0;
       padding: 0;
-      color: #222;
     }
     .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: #fff;
-      padding: 1rem;
-      text-align: center;
+      padding: 0.5rem 0;
+      position: relative;
       box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
-    .logo {
-      max-width: 200px;
-      width: 50vw;
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      z-index: 10;
     }
-    .product-grid {
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 5px 0;
+      background: #222;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .logo {
+      max-width: 300px;
+      width: 70vw;
+      margin: auto;
+      display: block;
+    }
+    .sidebar {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: none;
+      z-index: 99;
+    }
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #222;
+      padding: 0.5rem 0;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+    .products-section {
+      background: #f4f4f4;
+      padding: 2rem 1rem 1rem 1rem;
+      min-height: 60vh;
+    }
+    .products-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      padding: 2rem;
-      max-width: 800px;
+      gap: 1.2rem;
+      max-width: 600px;
       margin: auto;
     }
+    @media (max-width: 600px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     .card {
-      background: white;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 1.1rem 1rem 1.5rem 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+      align-items: center;
     }
     .card img {
-      width: 100%;
-      max-height: 180px;
+      width: 110px;
+      height: auto;
       object-fit: contain;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+      background: #eee;
+      border-radius: 10px;
     }
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.16rem;
       font-weight: bold;
-      margin-bottom: auto;
+      text-align: center;
+      margin-bottom: 0.6rem;
     }
     .card a {
-      margin-top: 1rem;
       background: #00ff43;
-      color: black;
+      color: #000;
+      padding: 0.45rem 1.15rem;
+      border-radius: 7px;
       text-decoration: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
       font-weight: bold;
+      font-size: 1.02rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-top: 0.3rem;
+      transition: background .15s;
       display: inline-block;
     }
     .card a:hover {
@@ -68,22 +126,51 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
   <div class="header">
-    <img src="../logo.jpg" alt="Gunshoop Logo" class="logo">
-    <h1>Produk Senapan Angin Uklik</h1>
+    <button class="menu-toggle" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="logo.jpg" alt="Gunshoop Logo" class="logo">
+    <div class="sidebar" id="sidebarMenu">
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+    </div>
   </div>
 
-  <div class="product-grid">
-    <div class="card">
-      <img src="../canon737.jpg" alt="Canon 737 Long">
-      <div class="card-title">Canon 737 Long</div>
-      <a href="../detail/canon/737-long.html">Detail</a>
+  <!-- Products -->
+  <section class="products-section">
+    <div class="products-grid">
+      <div class="card">
+        <img src="image/canon737detail3.jpg" alt="Senapan Uklik">
+        <div class="card-title">Senapan Uklik</div>
+        <a href="produk/uklik.html">Lihat Produk</a>
+      </div>
+      <div class="card">
+        <img src="image/marauderdetail.jpg" alt="Senapan PCP">
+        <div class="card-title">Senapan PCP</div>
+        <a href="produk/pcp/marauder.html">Lihat Produk</a>
+      </div>
+      <div class="card">
+        <img src="image/pcpbocapdetail.jpg" alt="BOCAP">
+        <div class="card-title">BOCAP</div>
+        <a href="produk/bocap/cncrouter.html">Lihat Produk</a>
+      </div>
+      <div class="card">
+        <img src="acsesoris.jpg" alt="Aksesoris & Perlengkapan">
+        <div class="card-title">Aksesoris &<br>Perlengkapan</div>
+        <a href="produk/acsesoris/">Lihat Produk</a>
+      </div>
     </div>
-    <div class="card">
-      <img src="../canon-802-lighting.jpg" alt="Canon 802 Lighting">
-      <div class="card-title">Canon 802 Lighting</div>
-      <a href="../detail/canon/802-lighting.html">Detail</a>
-    </div>
-  </div>
+  </section>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebarMenu");
+      sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
