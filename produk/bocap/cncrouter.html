@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Senapan PCP – Gunshoop</title>
+  <title>BOCAP – Gunshoop</title>
   <style>
     body {
       background: #f4f4f4;
@@ -12,11 +12,59 @@
       margin: 0;
       padding: 0;
     }
+    .header {
+      background: #fff;
+      padding: 0.5rem 0;
+      position: relative;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      z-index: 10;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 5px 0;
+      background: #222;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .sidebar {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: none;
+      z-index: 99;
+    }
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #222;
+      padding: 0.5rem 0;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
     .judul {
       text-align: center;
       background: #fff;
       padding: 1rem 0 0.5rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
     }
     .judul img {
       max-width: 280px;
@@ -66,23 +114,39 @@
   </style>
 </head>
 <body>
-  <div class="judul">
-    <img src="../../logo.jpg" alt="Gunshoop Logo">
-    <h1>Produk Senapan PCP</h1>
+  <!-- Header -->
+  <div class="header">
+    <button class="menu-toggle" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="../../logo.jpg" alt="Gunshoop Logo" style="max-width: 220px;">
+    <div class="sidebar" id="sidebarMenu">
+      <a href="../../index.html">Beranda</a>
+      <a href="../../produk.html">Produk</a>
+    </div>
   </div>
 
-  <div class="produk">
-    <div class="kartu">
-      <img src="../../image/marauder.jpg" alt="Marauder PCP">
-      <h2>Marauder</h2>
-      <a href="../../detail/pcp/marauder.html">Detail</a>
-    </div>
+  <!-- Judul -->
+  <div class="judul">
+    <h1>BOCAP</h1>
+  </div>
 
+  <!-- Produk -->
+  <div class="produk">
     <div class="kartu">
       <img src="../../image/pcpbocapdetail.jpg" alt="Bocap CNC Router">
       <h2>BOCAP CNC ROUTER</h2>
       <a href="../../detail/pcp/bocap-cnc-router.html">Detail</a>
     </div>
   </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebarMenu");
+      sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
